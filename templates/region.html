@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no,maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    <style>
+
+        body {
+        background:#ada996;
+        background: -webkit-linear-gradient(to right, #ada996, #f2f2f2, #dbdbdb, #eaeaea);
+        background: linear-gradient(to right, #ada996, #f2f2f2, #dbdbdb, #eaeaea);
+
+        }
+        
+        .marginauto {
+        margin: 10px auto 20px;
+        display: block;
+        }
+        
+        p{
+            text-align: center;
+            font-size:30px;
+        }
+
+        h5{
+            text-align: center;
+            font-size:35px;
+            
+        }
+
+        #region{
+            padding-top:100px;
+            border: 1px solid grey;
+            height:350px;
+            width: 900px;
+        }
+            
+
+        #select_region{
+            padding-top:50px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:30px;
+            
+        }
+
+        #Belgium{
+            padding-right:100px;
+            padding-left:100px;
+        }
+
+
+        
+        .modal-footer{
+          margin: 0 auto;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .row{
+          display:flex;
+          justify-content:center;
+          align-items:center;
+        }
+
+        
+        input[type="radio"] {
+            -ms-transform: scale(1.5); /* IE 9 */
+            -webkit-transform: scale(1.2); /* Chrome, Safari, Opera */
+            -webkit-appearance: radio;
+            box-shadow: none;
+            transform: scale(1.2);
+        }
+
+        
+        /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+        @media screen and (max-width: 600px) {
+        
+        .title{
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .display{
+            font-size: 14px;
+        }
+
+        .marginauto {
+        max-width:35%;
+        display:block;
+        height:auto;
+        margin: 2px auto 4px;
+        }
+
+        .modal-footer{
+          margin: 0 auto;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+
+
+        .navbar-brand{
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .region2{
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        #modallang{
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        #France{
+            font-size: 15px;
+        }
+
+        #Belgium{
+            font-size: 15px;
+            padding-right:18px;
+            padding-left:18px;
+        }
+
+        #UK{
+            font-size: 15px;
+        }
+        
+        .row{
+          display:flex;
+          justify-content:center;
+          align-items:center;
+        }
+
+        input[type="radio"] {
+            -ms-transform: scale(1); /* IE 9 */
+            -webkit-transform: scale(1); /* Chrome, Safari, Opera */
+            -webkit-appearance: button;
+            transform: scale(1);
+        }
+
+      }
+    </style>
+    
+
+</head>
+    <body>
+    
+<br>
+<br>
+    <div class="container">
+        
+        <span class="img.container">
+                <img class="marginauto" class="img-fluid" src="{{url_for('static', filename='pakter.PNG')}} " alt="centered image"/>
+        </span>
+    <h5 class="title">Selection tool for PLT according to EN-15266</h5>
+    <br>
+    <br>
+    <div class="row">
+    <div class="form-group" id="region">    
+        <h5 class="region2">Please select your region</h5>
+        <div id="select_region">
+        <div class="form-check form-check-inline " id="France">
+        <input onclick="window.location.href='francais';" class="form-check-input" type="radio" name="inlineRadioOptions" id="France" value="France" required >
+        <label class="form-check-label" for="inlineRadio1"  >France</label>
+        </div>
+        <div class="form-check form-check-inline " id="Belgium">
+        <input data-toggle="modal" data-target="#myModal" class="form-check-input"  type="radio" name="inlineRadioOptions" id="Belgium" value="Belgium" -webkit-appearance:none; required >
+        <label class="form-check-label" for="inlineRadio2"  >Belgium</label>
+        </div>
+        <div class="form-check form-check-inline "  id="UK">
+        <input onclick="window.location.href='english';" class="form-check-input" type="radio" name="inlineRadioOptions" id="UK" value="UK" required>
+        <label class="form-check-label" for="inlineRadio3" >UK</label>
+        </div>
+        </div>
+    </div>
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-sm">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" id="modallang">
+          <p>Please select your language</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="window.location.href='belgium_french';" class="btn btn-primary" >Français</button>
+          <button type="button" onclick="window.location.href='dutch';" class="btn btn-primary" >Nederlands</button>
+          </div>
+        
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+    </body>
+</html>
